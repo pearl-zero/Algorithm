@@ -1,13 +1,9 @@
 n = int(input())
 nums = list(map(int, input().split()))
-count = 0
 
+primes = []
 for x in nums:
-    for i in range(2,x+1):
-        if x % i == 0:
-            if x == i:
-                count += 1
-            else:
-                break
+    if x > 1 and all(x % i != 0 for i in range(2, x)):
+        primes.append(x)
 
-print(count)   
+print(len(primes))
